@@ -1,0 +1,303 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A71042321D6F173B00E68257 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71042311D6F173B00E68257 /* AppDelegate.swift */; };
+		A71042361D6F173B00E68257 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A71042351D6F173B00E68257 /* Assets.xcassets */; };
+		A71042391D6F173B00E68257 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A71042371D6F173B00E68257 /* Main.storyboard */; };
+		A71042411D6F247B00E68257 /* MenuLet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71042401D6F247B00E68257 /* MenuLet.swift */; };
+		A72464A31D7078940011B4BA /* PreferenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72464A11D7078940011B4BA /* PreferenceController.swift */; };
+		A72464A41D7078940011B4BA /* PreferenceController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A72464A21D7078940011B4BA /* PreferenceController.xib */; };
+		A758BCB31D71B015002512B0 /* PreferenceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A758BCB21D71B015002512B0 /* PreferenceModel.swift */; };
+		A758BCB51D71E274002512B0 /* client_darwin_amd64 in Resources */ = {isa = PBXBuildFile; fileRef = A758BCB41D71E274002512B0 /* client_darwin_amd64 */; };
+		A758BCB71D71E692002512B0 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = A758BCB61D71E692002512B0 /* Command.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A710422E1D6F173B00E68257 /* KcptunMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KcptunMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A71042311D6F173B00E68257 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A71042351D6F173B00E68257 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A71042381D6F173B00E68257 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A710423A1D6F173B00E68257 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A71042401D6F247B00E68257 /* MenuLet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuLet.swift; sourceTree = "<group>"; };
+		A72464A11D7078940011B4BA /* PreferenceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceController.swift; sourceTree = "<group>"; };
+		A72464A21D7078940011B4BA /* PreferenceController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferenceController.xib; sourceTree = "<group>"; };
+		A758BCB21D71B015002512B0 /* PreferenceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceModel.swift; sourceTree = "<group>"; };
+		A758BCB41D71E274002512B0 /* client_darwin_amd64 */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = client_darwin_amd64; sourceTree = "<group>"; };
+		A758BCB61D71E692002512B0 /* Command.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A710422B1D6F173B00E68257 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A71042251D6F173B00E68257 = {
+			isa = PBXGroup;
+			children = (
+				A71042301D6F173B00E68257 /* KcptunMac */,
+				A710422F1D6F173B00E68257 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A710422F1D6F173B00E68257 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A710422E1D6F173B00E68257 /* KcptunMac.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A71042301D6F173B00E68257 /* KcptunMac */ = {
+			isa = PBXGroup;
+			children = (
+				A71042311D6F173B00E68257 /* AppDelegate.swift */,
+				A71042351D6F173B00E68257 /* Assets.xcassets */,
+				A71042371D6F173B00E68257 /* Main.storyboard */,
+				A710423A1D6F173B00E68257 /* Info.plist */,
+				A71042401D6F247B00E68257 /* MenuLet.swift */,
+				A72464A11D7078940011B4BA /* PreferenceController.swift */,
+				A72464A21D7078940011B4BA /* PreferenceController.xib */,
+				A758BCB21D71B015002512B0 /* PreferenceModel.swift */,
+				A758BCB41D71E274002512B0 /* client_darwin_amd64 */,
+				A758BCB61D71E692002512B0 /* Command.swift */,
+			);
+			path = KcptunMac;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A710422D1D6F173B00E68257 /* KcptunMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A710423D1D6F173B00E68257 /* Build configuration list for PBXNativeTarget "KcptunMac" */;
+			buildPhases = (
+				A710422A1D6F173B00E68257 /* Sources */,
+				A710422B1D6F173B00E68257 /* Frameworks */,
+				A710422C1D6F173B00E68257 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KcptunMac;
+			productName = KcptunMac;
+			productReference = A710422E1D6F173B00E68257 /* KcptunMac.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A71042261D6F173B00E68257 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Cedric Wu";
+				TargetAttributes = {
+					A710422D1D6F173B00E68257 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = A71042291D6F173B00E68257 /* Build configuration list for PBXProject "KcptunMac" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A71042251D6F173B00E68257;
+			productRefGroup = A710422F1D6F173B00E68257 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A710422D1D6F173B00E68257 /* KcptunMac */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A710422C1D6F173B00E68257 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A72464A41D7078940011B4BA /* PreferenceController.xib in Resources */,
+				A758BCB51D71E274002512B0 /* client_darwin_amd64 in Resources */,
+				A71042361D6F173B00E68257 /* Assets.xcassets in Resources */,
+				A71042391D6F173B00E68257 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A710422A1D6F173B00E68257 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A758BCB31D71B015002512B0 /* PreferenceModel.swift in Sources */,
+				A71042411D6F247B00E68257 /* MenuLet.swift in Sources */,
+				A71042321D6F173B00E68257 /* AppDelegate.swift in Sources */,
+				A758BCB71D71E692002512B0 /* Command.swift in Sources */,
+				A72464A31D7078940011B4BA /* PreferenceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A71042371D6F173B00E68257 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A71042381D6F173B00E68257 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A710423B1D6F173B00E68257 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A710423C1D6F173B00E68257 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		A710423E1D6F173B00E68257 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = KcptunMac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cedric.KcptunMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A710423F1D6F173B00E68257 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = KcptunMac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cedric.KcptunMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A71042291D6F173B00E68257 /* Build configuration list for PBXProject "KcptunMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A710423B1D6F173B00E68257 /* Debug */,
+				A710423C1D6F173B00E68257 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A710423D1D6F173B00E68257 /* Build configuration list for PBXNativeTarget "KcptunMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A710423E1D6F173B00E68257 /* Debug */,
+				A710423F1D6F173B00E68257 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A71042261D6F173B00E68257 /* Project object */;
+}
