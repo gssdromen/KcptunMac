@@ -49,4 +49,12 @@ class Command {
             }
         }
     }
+
+    class func enableRunAtLogin() {
+
+    }
+
+    class func disableRunAtLogin() {
+
+    }
 }
