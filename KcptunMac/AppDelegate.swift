@@ -19,12 +19,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //        self.statusBar.highlightMode = true
     }
 
-    func applicationDidFinishLaunching(aNotification: NSNotification) {
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         MenuLet.showMenu()
     }
 
-    func applicationWillTerminate(aNotification: NSNotification) {
+    func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
 

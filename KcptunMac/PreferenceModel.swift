@@ -16,7 +16,7 @@ class PreferenceModel: NSObject {
     var remoteAddress: String = ""
     var key: String = ""
     var otherArgs: String = ""
-    var clientPath: String? = NSBundle.mainBundle().pathForResource("client_darwin_amd64", ofType: nil)
+    var clientPath: String? = Bundle.main.path(forResource: "client_darwin_amd64", ofType: nil)
     var pid: Int32 = -1
 
     static let sharedInstance = PreferenceModel()
@@ -27,23 +27,23 @@ class PreferenceModel: NSObject {
     }
 
     func save() {
-        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let userDefaults = UserDefaults.standard
 
-        userDefaults.setObject(self.localPort, forKey: "localPort")
-        userDefaults.setObject(self.remoteAddress, forKey: "remoteAddress")
-        userDefaults.setObject(self.key, forKey: "key")
-        userDefaults.setObject(self.otherArgs, forKey: "otherArgs")
+        userDefaults.set(self.localPort, forKey: "localPort")
+        userDefaults.set(self.remoteAddress, forKey: "remoteAddress")
+        userDefaults.set(self.key, forKey: "key")
+        userDefaults.set(self.otherArgs, forKey: "otherArgs")
 
         userDefaults.synchronize()
     }
 
     func load() {
-        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let userDefaults = UserDefaults.standard
 
-        self.localPort = userDefaults.stringForKey("localPort") ?? ""
-        self.remoteAddress = userDefaults.stringForKey("remoteAddress") ?? ""
-        self.key = userDefaults.stringForKey("key") ?? ""
-        self.otherArgs = userDefaults.stringForKey("otherArgs") ?? ""
+        self.localPort = userDefaults.string(forKey: "localPort") ?? ""
+        self.remoteAddress = userDefaults.string(forKey: "remoteAddress") ?? ""
+        self.key = userDefaults.string(forKey: "key") ?? ""
+        self.otherArgs = userDefaults.string(forKey: "otherArgs") ?? ""
     }
 
     func combine() -> [String] {
@@ -61,8 +61,8 @@ class PreferenceModel: NSObject {
             list.append(self.key)
         }
         if !self.otherArgs.isEmpty {
-            let arr = self.otherArgs.componentsSeparatedByString(" ")
-            list.appendContentsOf(arr)
+            let arr = self.otherArgs.components(separatedBy: " ")
+            list.append(contentsOf: arr)
         }
         return list
     }

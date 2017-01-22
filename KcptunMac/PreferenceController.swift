@@ -16,7 +16,7 @@ class PreferenceController: NSWindowController {
     @IBOutlet weak var save: NSButton!
     @IBOutlet weak var cancel: NSButton!
 
-    @IBAction func saveButtonClick(sender: NSButton) {
+    @IBAction func saveButtonClick(_ sender: NSButton) {
         let model = PreferenceModel.sharedInstance
         model.localPort = self.localPort.stringValue
         model.remoteAddress = self.remoteAddress.stringValue
@@ -27,7 +27,7 @@ class PreferenceController: NSWindowController {
         self.close()
     }
 
-    @IBAction func cancelButtonClick(sender: NSButton) {
+    @IBAction func cancelButtonClick(_ sender: NSButton) {
         self.close()
     }
 
@@ -41,7 +41,7 @@ class PreferenceController: NSWindowController {
         // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
         self.window?.center()
         self.window?.makeKeyAndOrderFront(nil)
-        NSApp.activateIgnoringOtherApps(true)
+        NSApp.activate(ignoringOtherApps: true)
 
         let model = PreferenceModel.sharedInstance
         self.localPort.stringValue = model.localPort

@@ -20,10 +20,10 @@ class MenuLet: NSObject {
     static var isOn = false
 
     class func showMenu() {
-        self.statusBar = NSStatusBar.systemStatusBar().statusItemWithLength(NSVariableStatusItemLength)
+        self.statusBar = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
         self.statusBar.highlightMode = true
         self.statusBar.title = "K"
-        self.statusBar.enabled = true
+        self.statusBar.isEnabled = true
 
         self.menu = NSMenu(title: "KK")
         self.menu.autoenablesItems = false
@@ -32,7 +32,7 @@ class MenuLet: NSObject {
         self.toggleItem.target = self
         self.menu.addItem(self.toggleItem)
 
-        self.menu.addItem(NSMenuItem.separatorItem())
+        self.menu.addItem(NSMenuItem.separator())
 
         self.preferenceItem = NSMenuItem(title: "Preferences", action: #selector(MenuLet.setPreferences), keyEquivalent: "")
         self.preferenceItem.target = self
@@ -66,14 +66,14 @@ class MenuLet: NSObject {
     }
 
     class func quit() {
-        NSApplication.sharedApplication().terminate(self)
+        NSApplication.shared().terminate(self)
     }
 
     class func runScript() {
         Command.runKCPTUN({
-            dispatch_async(dispatch_get_main_queue(), {
+            DispatchQueue.main.async(execute: {
                 let alert = NSAlert()
-                alert.addButtonWithTitle("ok")
+                alert.addButton(withTitle: "ok")
                 alert.messageText = "need some more configurations"
                 if (alert.runModal() == NSAlertFirstButtonReturn) {
                     // OK clicked, delete the record
