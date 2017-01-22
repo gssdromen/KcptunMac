@@ -10,7 +10,7 @@ import Foundation
 
 class Command {
     class func runKCPTUN(_ configurationErrorBlock: @escaping (() -> Void)) {
-        DispatchQueue.global().async { 
+        DispatchQueue.global().async {
             let pipe = Pipe()
             let file = pipe.fileHandleForReading
 
