@@ -12,6 +12,7 @@ class MenuLet: NSObject {
     static var statusBar: NSStatusItem!
     static var menu: NSMenu!
     static var toggleItem: NSMenuItem!
+    static var startAtLogin: NSMenuItem!
     static var preferenceItem: NSMenuItem!
     static var quitItem: NSMenuItem!
 
@@ -33,6 +34,10 @@ class MenuLet: NSObject {
         self.menu.addItem(self.toggleItem)
 
         self.menu.addItem(NSMenuItem.separator())
+
+        self.startAtLogin = NSMenuItem(title: "StartAtLogin", action: #selector(MenuLet.triggerAutoStart), keyEquivalent: "")
+        self.startAtLogin.target = self
+        self.menu.addItem(self.startAtLogin)
 
         self.preferenceItem = NSMenuItem(title: "Preferences", action: #selector(MenuLet.setPreferences), keyEquivalent: "")
         self.preferenceItem.target = self
@@ -65,7 +70,12 @@ class MenuLet: NSObject {
         self.preferencesWindow.showWindow(nil)
     }
 
+    class func triggerAutoStart() {
+        Command.triggerRunAtLogin(startup: true)
+    }
+
     class func quit() {
+        Command.stopKCPTUN()
         NSApplication.shared().terminate(self)
     }
 

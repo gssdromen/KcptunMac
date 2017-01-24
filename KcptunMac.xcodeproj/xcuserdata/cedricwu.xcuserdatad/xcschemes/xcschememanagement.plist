@@ -9,10 +9,20 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>KcptunMacLauncher.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>A710422D1D6F173B00E68257</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A7860A351E3741E20007A935</key>
 		<dict>
 			<key>primary</key>
 			<true/>

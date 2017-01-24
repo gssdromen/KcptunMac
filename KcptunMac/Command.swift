@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import ServiceManagement
+import Cocoa
 
 class Command {
     class func runKCPTUN(_ configurationErrorBlock: @escaping (() -> Void)) {
@@ -52,11 +54,32 @@ class Command {
         }
     }
 
-    class func enableRunAtLogin() {
+    class func triggerRunAtLogin(startup: Bool) {
+        // 这里请填写你自己的Heler BundleID
+        let launcherAppIdentifier = "com.cedric.KcptunMac.KcptunMacLauncher"
 
-    }
+        // 开始注册/取消启动项
+        let flag = SMLoginItemSetEnabled(launcherAppIdentifier as CFString, startup)
 
-    class func disableRunAtLogin() {
+        if flag {
+            let userDefaults = UserDefaults.standard
+            userDefaults.set(startup, forKey: "LaunchAtLogin")
+            userDefaults.synchronize()
+        }
 
+//        var startedAtLogin = false
+//
+//        for app in NSWorkspace.shared().runningApplications {
+//            if let id = app.bundleIdentifier {
+//                if id == launcherAppIdentifier {
+//                    startedAtLogin = true
+//                }
+//            }
+//
+//        }
+//
+//        if startedAtLogin {
+//            DistributedNotificationCenter.default().post(name: NSNotification.Name(rawValue: "killhelper"), object: Bundle.main.bundleIdentifier!)
+//        }
     }
 }
