@@ -9,18 +9,26 @@
 import Cocoa
 
 class MenuLet: NSObject {
-    static var statusBar: NSStatusItem!
-    static var menu: NSMenu!
-    static var toggleItem: NSMenuItem!
-    static var startAtLogin: NSMenuItem!
-    static var preferenceItem: NSMenuItem!
-    static var quitItem: NSMenuItem!
+    var statusBar: NSStatusItem!
+    var menu: NSMenu!
+    var toggleItem: NSMenuItem!
+    var startAtLogin: NSMenuItem!
+    var preferenceItem: NSMenuItem!
+    var quitItem: NSMenuItem!
 
-    static let preferencesWindow = PreferenceController()
+    let preferencesWindow = PreferenceController()
 
-    static var isOn = false
+    var isOn = false
+    var autoStart = false
 
-    class func showMenu() {
+    static let shared = MenuLet()
+
+    override init() {
+        let userDefault = UserDefaults.standard
+        autoStart = userDefault.bool(forKey: "LaunchAtLogin")
+    }
+
+    func showMenu() {
         self.statusBar = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
         self.statusBar.highlightMode = true
         self.statusBar.title = "K"
@@ -50,7 +58,7 @@ class MenuLet: NSObject {
         self.statusBar.menu = self.menu
     }
 
-    class func toggleKcptun() {
+    func toggleKcptun() {
         if self.isOn {
             // 关闭kcptun
             print("to off")
@@ -66,20 +74,20 @@ class MenuLet: NSObject {
         }
     }
 
-    class func setPreferences() {
+    func setPreferences() {
         self.preferencesWindow.showWindow(nil)
     }
 
-    class func triggerAutoStart() {
+    func triggerAutoStart() {
         Command.triggerRunAtLogin(startup: true)
     }
 
-    class func quit() {
+    func quit() {
         Command.stopKCPTUN()
         NSApplication.shared().terminate(self)
     }
 
-    class func runScript() {
+    func runScript() {
         Command.runKCPTUN({
             DispatchQueue.main.async(execute: {
                 let alert = NSAlert()
@@ -93,7 +101,7 @@ class MenuLet: NSObject {
         })
     }
 
-    class func stopScript() {
+    func stopScript() {
         Command.stopKCPTUN()
     }
 
