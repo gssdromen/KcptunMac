@@ -16,8 +16,10 @@ class PreferenceModel: NSObject {
     var remoteAddress: String = ""
     var key: String = ""
     var otherArgs: String = ""
-    var clientPath: String? = Bundle.main.path(forResource: "client_darwin_amd64", ofType: nil)
+    let clientPath = Bundle.main.path(forResource: "client_darwin_amd64", ofType: nil)
     var pid: Int32 = -1
+    
+    var startKcptunWhenOpen = false
 
     static let sharedInstance = PreferenceModel()
 
@@ -33,6 +35,7 @@ class PreferenceModel: NSObject {
         userDefaults.set(self.remoteAddress, forKey: "remoteAddress")
         userDefaults.set(self.key, forKey: "key")
         userDefaults.set(self.otherArgs, forKey: "otherArgs")
+        userDefaults.set(self.startKcptunWhenOpen, forKey: "startKcptunWhenOpen")
 
         userDefaults.synchronize()
     }
@@ -44,6 +47,7 @@ class PreferenceModel: NSObject {
         self.remoteAddress = userDefaults.string(forKey: "remoteAddress") ?? ""
         self.key = userDefaults.string(forKey: "key") ?? ""
         self.otherArgs = userDefaults.string(forKey: "otherArgs") ?? ""
+        self.startKcptunWhenOpen = userDefaults.bool(forKey: "startKcptunWhenOpen")
     }
 
     func combine() -> [String] {

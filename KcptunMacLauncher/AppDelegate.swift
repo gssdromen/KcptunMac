@@ -19,14 +19,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         let mainBundleId = "com.cedric.KcptunMac"
         var alreadyRunning = false;
-        for app in NSWorkspace.shared().runningApplications {
-            if app.bundleIdentifier == mainBundleId {
-                alreadyRunning = true
-                break
-            }
-        }
+//        for app in NSWorkspace.shared().runningApplications {
+//            if app.bundleIdentifier == mainBundleId {
+//                alreadyRunning = true
+//                break
+//            }
+//        }
 
-        if (!alreadyRunning) {
+//        if (!alreadyRunning) {
             let helperPath: NSString = Bundle.main.bundlePath as NSString;
             var pathComponents = helperPath.pathComponents;
             pathComponents.removeLast(3);
@@ -35,7 +35,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             if !NSWorkspace.shared().launchApplication(mainBundlePath) {
                 NSLog("Launch app \(mainBundleId) failed.")
             }
-        }
+//        }
         NSApp.terminate(nil);
     }
 

@@ -15,6 +15,7 @@ class PreferenceController: NSWindowController {
     @IBOutlet weak var otherArgs: NSTextField!
     @IBOutlet weak var save: NSButton!
     @IBOutlet weak var cancel: NSButton!
+    @IBOutlet weak var runWhenOpen: NSButton!
 
     @IBAction func saveButtonClick(_ sender: NSButton) {
         let model = PreferenceModel.sharedInstance
@@ -22,6 +23,7 @@ class PreferenceController: NSWindowController {
         model.remoteAddress = self.remoteAddress.stringValue
         model.key = self.key.stringValue
         model.otherArgs = self.otherArgs.stringValue
+        model.startKcptunWhenOpen = self.runWhenOpen.state == NSOnState
 
         model.save()
         self.close()
@@ -48,6 +50,7 @@ class PreferenceController: NSWindowController {
         self.remoteAddress.stringValue = model.remoteAddress
         self.key.stringValue = model.key
         self.otherArgs.stringValue = model.otherArgs
+        self.runWhenOpen.state = model.startKcptunWhenOpen == true ? NSOnState : NSOffState
     }
 
 }

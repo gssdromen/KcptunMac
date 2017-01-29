@@ -43,9 +43,9 @@ class MenuLet: NSObject {
 
         self.menu.addItem(NSMenuItem.separator())
 
-        self.startAtLogin = NSMenuItem(title: "StartAtLogin", action: #selector(MenuLet.triggerAutoStart), keyEquivalent: "")
-        self.startAtLogin.target = self
-        self.menu.addItem(self.startAtLogin)
+//        self.startAtLogin = NSMenuItem(title: "StartAtLogin", action: #selector(MenuLet.triggerAutoStart), keyEquivalent: "")
+//        self.startAtLogin.target = self
+//        self.menu.addItem(self.startAtLogin)
 
         self.preferenceItem = NSMenuItem(title: "Preferences", action: #selector(MenuLet.setPreferences), keyEquivalent: "")
         self.preferenceItem.target = self
@@ -56,6 +56,10 @@ class MenuLet: NSObject {
         self.menu.addItem(self.quitItem)
 
         self.statusBar.menu = self.menu
+        
+        if PreferenceModel.sharedInstance.startKcptunWhenOpen {
+            self.toggleKcptun()
+        }
     }
 
     func toggleKcptun() {
@@ -78,9 +82,9 @@ class MenuLet: NSObject {
         self.preferencesWindow.showWindow(nil)
     }
 
-    func triggerAutoStart() {
-        Command.triggerRunAtLogin(startup: true)
-    }
+//    func triggerAutoStart() {
+//        Command.triggerRunAtLogin(startup: true)
+//    }
 
     func quit() {
         Command.stopKCPTUN()
