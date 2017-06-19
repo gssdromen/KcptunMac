@@ -18,6 +18,7 @@ class PreferenceModel: NSObject {
     let clientPath = Bundle.main.path(forResource: "client_darwin_amd64", ofType: nil)
 
     var startKcptunWhenOpenApp = false
+    var startKcptunWhenLogin = false
 
     static let sharedInstance = PreferenceModel()
 
@@ -46,6 +47,9 @@ class PreferenceModel: NSObject {
         self.key = userDefaults.string(forKey: "key") ?? ""
         self.otherArgs = userDefaults.string(forKey: "otherArgs") ?? ""
         self.startKcptunWhenOpenApp = userDefaults.bool(forKey: "startKcptunWhenOpenApp")
+        
+        let path = "\(NSHomeDirectory())/Library/LaunchAgents/com.cedric.KcptunMac.plist"
+        self.startKcptunWhenLogin = FileManager.default.fileExists(atPath: path)
     }
 
     func combine() -> [String] {

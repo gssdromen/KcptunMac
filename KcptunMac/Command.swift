@@ -15,7 +15,7 @@ class Command {
     static let kPidPath = "/var/run/com.cedric.KcptunMac.pid"
 
     class func runKCPTUN(_ configurationErrorBlock: @escaping (() -> Void)) {
-        DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + DispatchTimeInterval.seconds(2)) {
+        DispatchQueue.global().asyncAfter(deadline: DispatchTime.now()) {
             let pipe = Pipe()
             let file = pipe.fileHandleForReading
 
@@ -47,16 +47,12 @@ class Command {
     class func stopKCPTUN() {
         DispatchQueue.global().async {
             let task = Process()
-            let model = PreferenceModel.sharedInstance
 
             if let pid = Command.readPidToFilePath(path: Command.kPidPath) {
-                print(pid)
-
                 task.launchPath = "/bin/kill"
 
                 task.arguments = ["-9", pid]
                 task.launch()
-
             }
         }
     }
@@ -68,7 +64,7 @@ class Command {
         plist.addChild(dict)
 
         dict.addChild(name: "key", value: "Label", attributes: [:])
-        dict.addChild(name: "string", value: "com.cedric.KcptunMac.plist", attributes: [:])
+        dict.addChild(name: "string", value: "com.cedric.KcptunMac", attributes: [:])
         dict.addChild(name: "key", value: "ProgramArguments", attributes: [:])
         let arrayElement = AEXMLElement(name: "array")
         arrayElement.addChild(name: "string", value: kcptunPath, attributes: [:])
@@ -79,9 +75,6 @@ class Command {
 
         dict.addChild(name: "key", value: "KeepAlive", attributes: [:])
         dict.addChild(name: "true", value: nil, attributes: [:])
-
-        dict.addChild(name: "key", value: "ProcessType", attributes: [:])
-        dict.addChild(name: "string", value: "Background", attributes: [:])
 
         xml.addChild(plist)
 
@@ -128,12 +121,12 @@ class Command {
         // 开始注册/取消启动项
         let flag = SMLoginItemSetEnabled(launcherAppIdentifier as CFString, startup)
 
-        if flag {
-            let userDefaults = UserDefaults.standard
-            userDefaults.set(startup, forKey: "LaunchAtLogin")
-            userDefaults.synchronize()
-        }
-
+//        if flag {
+//            let userDefaults = UserDefaults.standard
+//            userDefaults.set(startup, forKey: "LaunchAtLogin")
+//            userDefaults.synchronize()
+//        }
+//
 //        var startedAtLogin = false
 //
 //        for app in NSWorkspace.shared().runningApplications {

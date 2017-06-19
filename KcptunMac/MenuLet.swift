@@ -19,13 +19,10 @@ class MenuLet: NSObject {
     let preferencesWindow = PreferenceController()
 
     var isOn = false
-    var autoStart = false
 
     static let shared = MenuLet()
 
     override init() {
-        let userDefault = UserDefaults.standard
-        autoStart = userDefault.bool(forKey: "LaunchAtLogin")
     }
 
     func showMenu() {
@@ -45,6 +42,9 @@ class MenuLet: NSObject {
 
         self.startAtLogin = NSMenuItem(title: "StartAtLogin", action: #selector(MenuLet.triggerAutoStart), keyEquivalent: "")
         self.startAtLogin.target = self
+        if PreferenceModel.sharedInstance.startKcptunWhenLogin {
+            self.startAtLogin.image = NSImage(named: "gou")
+        }
         self.menu.addItem(self.startAtLogin)
 
         self.preferenceItem = NSMenuItem(title: "Preferences", action: #selector(MenuLet.setPreferences), keyEquivalent: "")
@@ -57,8 +57,22 @@ class MenuLet: NSObject {
 
         self.statusBar.menu = self.menu
 
-        if PreferenceModel.sharedInstance.startKcptunWhenOpenApp {
-            self.toggleKcptun()
+        var needsStartUp = true
+        for app in NSWorkspace.shared().runningApplications {
+            if let id = app.bundleIdentifier {
+                if id == "com.cedric.KcptunMac" {
+                    needsStartUp = false
+                    break
+                }
+            }
+        }
+
+        if needsStartUp {
+            if PreferenceModel.sharedInstance.startKcptunWhenOpenApp {
+                if !PreferenceModel.sharedInstance.startKcptunWhenLogin {
+                    self.toggleKcptun()
+                }
+            }
         }
     }
 
@@ -72,7 +86,6 @@ class MenuLet: NSObject {
             // 开启kcptun
             self.runScript()
             self.isOn = true
-
             self.toggleItem.image = NSImage(named: "gou")
         }
     }
