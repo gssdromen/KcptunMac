@@ -102,6 +102,9 @@ class MenuLet: NSObject {
             let xml = Command.genLaunchAgentsPlist(kcptunPath: clientPath, params: params)
             let path = "\(NSHomeDirectory())/Library/LaunchAgents/com.cedric.KcptunMac.plist"
             Command.writeStringToFilePath(path: path, xmlString: xml.xml)
+
+            PreferenceModel.sharedInstance.startKcptunWhenLogin = true
+            self.startAtLogin.image = NSImage(named: "gou")
         }
     }
 
