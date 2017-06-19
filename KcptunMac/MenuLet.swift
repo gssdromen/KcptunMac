@@ -37,15 +37,15 @@ class MenuLet: NSObject {
         self.menu = NSMenu(title: "KK")
         self.menu.autoenablesItems = false
 
-        self.toggleItem = NSMenuItem(title: "open kcp", action: #selector(MenuLet.toggleKcptun), keyEquivalent: "")
+        self.toggleItem = NSMenuItem(title: "start kcp", action: #selector(MenuLet.toggleKcptun), keyEquivalent: "")
         self.toggleItem.target = self
         self.menu.addItem(self.toggleItem)
 
         self.menu.addItem(NSMenuItem.separator())
 
-//        self.startAtLogin = NSMenuItem(title: "StartAtLogin", action: #selector(MenuLet.triggerAutoStart), keyEquivalent: "")
-//        self.startAtLogin.target = self
-//        self.menu.addItem(self.startAtLogin)
+        self.startAtLogin = NSMenuItem(title: "StartAtLogin", action: #selector(MenuLet.triggerAutoStart), keyEquivalent: "")
+        self.startAtLogin.target = self
+        self.menu.addItem(self.startAtLogin)
 
         self.preferenceItem = NSMenuItem(title: "Preferences", action: #selector(MenuLet.setPreferences), keyEquivalent: "")
         self.preferenceItem.target = self
@@ -56,8 +56,8 @@ class MenuLet: NSObject {
         self.menu.addItem(self.quitItem)
 
         self.statusBar.menu = self.menu
-        
-        if PreferenceModel.sharedInstance.startKcptunWhenOpen {
+
+        if PreferenceModel.sharedInstance.startKcptunWhenOpenApp {
             self.toggleKcptun()
         }
     }
@@ -65,16 +65,15 @@ class MenuLet: NSObject {
     func toggleKcptun() {
         if self.isOn {
             // 关闭kcptun
-            print("to off")
             self.stopScript()
             self.isOn = false
-            self.toggleItem.title = "open kcp"
+            self.toggleItem.image = nil
         } else {
             // 开启kcptun
-            print("to on")
             self.runScript()
             self.isOn = true
-            self.toggleItem.title = "kill kcp"
+
+            self.toggleItem.image = NSImage(named: "gou")
         }
     }
 
@@ -82,9 +81,16 @@ class MenuLet: NSObject {
         self.preferencesWindow.showWindow(nil)
     }
 
-//    func triggerAutoStart() {
+    func triggerAutoStart() {
 //        Command.triggerRunAtLogin(startup: true)
-//    }
+
+        if let clientPath = PreferenceModel.sharedInstance.clientPath {
+            let params = PreferenceModel.sharedInstance.combine()
+            let xml = Command.genLaunchAgentsPlist(kcptunPath: clientPath, params: params)
+            let path = "\(NSHomeDirectory())/Library/LaunchAgents/com.cedric.KcptunMac.plist"
+            Command.writeStringToFilePath(path: path, xmlString: xml.xml)
+        }
+    }
 
     func quit() {
         Command.stopKCPTUN()
@@ -108,5 +114,4 @@ class MenuLet: NSObject {
     func stopScript() {
         Command.stopKCPTUN()
     }
-
 }

@@ -17,6 +17,8 @@
 		A758BCB31D71B015002512B0 /* PreferenceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A758BCB21D71B015002512B0 /* PreferenceModel.swift */; };
 		A758BCB51D71E274002512B0 /* client_darwin_amd64 in Resources */ = {isa = PBXBuildFile; fileRef = A758BCB41D71E274002512B0 /* client_darwin_amd64 */; };
 		A758BCB71D71E692002512B0 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = A758BCB61D71E692002512B0 /* Command.swift */; };
+		A779F6071EDB9E01009BA944 /* AEXML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A779F6061EDB9E01009BA944 /* AEXML.framework */; };
+		A779F6081EDB9E01009BA944 /* AEXML.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A779F6061EDB9E01009BA944 /* AEXML.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A7860A391E3741E20007A935 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7860A381E3741E20007A935 /* AppDelegate.swift */; };
 		A7860A3B1E3741E20007A935 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7860A3A1E3741E20007A935 /* Assets.xcassets */; };
 		A7860A3E1E3741E20007A935 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7860A3C1E3741E20007A935 /* MainMenu.xib */; };
@@ -34,6 +36,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A779F6091EDB9E01009BA944 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A779F6081EDB9E01009BA944 /* AEXML.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +62,7 @@
 		A758BCB21D71B015002512B0 /* PreferenceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceModel.swift; sourceTree = "<group>"; };
 		A758BCB41D71E274002512B0 /* client_darwin_amd64 */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = client_darwin_amd64; sourceTree = "<group>"; };
 		A758BCB61D71E692002512B0 /* Command.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
+		A779F6061EDB9E01009BA944 /* AEXML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AEXML.framework; path = Frameworks/AEXML.framework; sourceTree = "<group>"; };
 		A7860A361E3741E20007A935 /* KcptunMacLauncher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KcptunMacLauncher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7860A381E3741E20007A935 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A7860A3A1E3741E20007A935 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -61,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A779F6071EDB9E01009BA944 /* AEXML.framework in Frameworks */,
 				A724A0D91E373B3C008FD8E4 /* ServiceManagement.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -78,6 +93,7 @@
 		A71042251D6F173B00E68257 = {
 			isa = PBXGroup;
 			children = (
+				A779F6061EDB9E01009BA944 /* AEXML.framework */,
 				A71042301D6F173B00E68257 /* KcptunMac */,
 				A7860A371E3741E20007A935 /* KcptunMacLauncher */,
 				A710422F1D6F173B00E68257 /* Products */,
@@ -141,6 +157,7 @@
 				A710422B1D6F173B00E68257 /* Frameworks */,
 				A710422C1D6F173B00E68257 /* Resources */,
 				A724A0E01E373C60008FD8E4 /* CopyFiles */,
+				A779F6091EDB9E01009BA944 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -175,7 +192,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Cedric Wu";
 				TargetAttributes = {
 					A710422D1D6F173B00E68257 = {
@@ -288,8 +305,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -333,8 +352,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -353,6 +374,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
 		};
@@ -364,6 +386,10 @@
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = KcptunMac/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cedric.KcptunMac;
@@ -380,6 +406,10 @@
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = KcptunMac/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cedric.KcptunMac;

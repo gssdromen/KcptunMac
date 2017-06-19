@@ -12,11 +12,6 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     override func awakeFromNib() {
-//        self.statusBar = NSStatusBar.systemStatusBar().statusItemWithLength(NSVariableStatusItemLength)
-//
-//        self.statusBar.title = "F"
-//        self.statusBar.menu = self.menu
-//        self.statusBar.highlightMode = true
     }
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {

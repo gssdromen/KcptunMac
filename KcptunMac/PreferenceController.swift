@@ -23,7 +23,7 @@ class PreferenceController: NSWindowController {
         model.remoteAddress = self.remoteAddress.stringValue
         model.key = self.key.stringValue
         model.otherArgs = self.otherArgs.stringValue
-        model.startKcptunWhenOpen = self.runWhenOpen.state == NSOnState
+        model.startKcptunWhenOpenApp = self.runWhenOpen.state == NSOnState
 
         model.save()
         self.close()
@@ -50,7 +50,6 @@ class PreferenceController: NSWindowController {
         self.remoteAddress.stringValue = model.remoteAddress
         self.key.stringValue = model.key
         self.otherArgs.stringValue = model.otherArgs
-        self.runWhenOpen.state = model.startKcptunWhenOpen == true ? NSOnState : NSOffState
+        self.runWhenOpen.state = model.startKcptunWhenOpenApp == true ? NSOnState : NSOffState
     }
-
 }

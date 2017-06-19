@@ -11,15 +11,13 @@ import Foundation
 import Foundation
 
 class PreferenceModel: NSObject {
-
     var localPort: String = ""
     var remoteAddress: String = ""
     var key: String = ""
     var otherArgs: String = ""
     let clientPath = Bundle.main.path(forResource: "client_darwin_amd64", ofType: nil)
-    var pid: Int32 = -1
-    
-    var startKcptunWhenOpen = false
+
+    var startKcptunWhenOpenApp = false
 
     static let sharedInstance = PreferenceModel()
 
@@ -35,7 +33,7 @@ class PreferenceModel: NSObject {
         userDefaults.set(self.remoteAddress, forKey: "remoteAddress")
         userDefaults.set(self.key, forKey: "key")
         userDefaults.set(self.otherArgs, forKey: "otherArgs")
-        userDefaults.set(self.startKcptunWhenOpen, forKey: "startKcptunWhenOpen")
+        userDefaults.set(self.startKcptunWhenOpenApp, forKey: "startKcptunWhenOpenApp")
 
         userDefaults.synchronize()
     }
@@ -47,14 +45,15 @@ class PreferenceModel: NSObject {
         self.remoteAddress = userDefaults.string(forKey: "remoteAddress") ?? ""
         self.key = userDefaults.string(forKey: "key") ?? ""
         self.otherArgs = userDefaults.string(forKey: "otherArgs") ?? ""
-        self.startKcptunWhenOpen = userDefaults.bool(forKey: "startKcptunWhenOpen")
+        self.startKcptunWhenOpenApp = userDefaults.bool(forKey: "startKcptunWhenOpenApp")
     }
 
     func combine() -> [String] {
         var list = [String]()
         if !self.localPort.isEmpty {
+            let port = self.localPort.hasPrefix(":") ? self.localPort : ":\(self.localPort)"
             list.append("-l")
-            list.append(self.localPort.hasPrefix(":") ? self.localPort : ":\(self.localPort)")
+            list.append(port)
         }
         if !self.remoteAddress.isEmpty {
             list.append("-r")
